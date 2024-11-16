@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./index.js" defer></script>
+    <title>Calculadora incerto vs garantido</title>
+    <style>
+        /* Dark theme styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: #BB86FC;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-size: 14px;
+            color: #B0B0B0;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 5px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background-color: #333;
+            color: #E0E0E0;
+        }
+        .form-group input:focus {
+            border-color: #BB86FC;
+            outline: none;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2C2C2C;
+            border-radius: 8px;
+            color: #BB86FC;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Calculadora incerto vs garantido</h1>
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="custo-incerto">Custo incerto</label>
+            <input type="number" id="custo-incerto" name="custo-incerto" placeholder="Digite o custo incerto" min="1" step="1" oninput="calc()" required>
+        </div>
+
+        <div class="form-group">
+            <label for="chance-sucesso">Chance de sucesso (%)</label>
+            <input type="number" id="chance-sucesso" name="chance-sucesso" step="1" min="1" max="100" placeholder="Digite a chance de sucesso" required oninput="calc()">
+        </div>
+
+        <div class="form-group">
+            <label for="falhas-atuais">Falhas atuais</label>
+            <input type="number" id="falhas-atuais" name="falhas-atuais" min="0" placeholder="Digite o número de falhas atuais" required oninput="calc()">
+        </div>
+
+        <div class="form-group">
+            <label for="maximo-falhas">Máximo de falhas</label>
+            <input type="number" id="maximo-falhas" name="maximo-falhas" min="1" max="100" placeholder="Digite o número máximo de falhas" required oninput="calc()">
+        </div>
+
+        <div class="results" id="results">
+            <p>Custo experado incerto: <span id="esperado-incerto"></span> </p>
+            <p>Custo garantido: <span id="custo-garantido"></span></p>
+            <p>Melhor botão: <span id="melhor-botao"></span></p>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
